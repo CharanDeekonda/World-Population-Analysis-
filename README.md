@@ -1,6 +1,7 @@
-🌍 World Population Analysis - Machine Learning Project
+
+# 🌍 World Population Analysis
 Internship Project Report
-📌 Section 1: Project Overview
+## 📌 Section 1: Project Overview
 Project Title:
 World Population Analysis
 
