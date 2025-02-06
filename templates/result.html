@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <style>
+        /* Body styling */
+        body {
+            background-color: #f0f8ff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Center content */
+        .container {
+            width: 100%;
+            height: auto;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+            padding-bottom: 30px;
+        }
+
+        /* Result page content */
+        .result-content {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            width: 50%;
+            min-width: 300px;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            color: #2e3b4e;
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 18px;
+            color: #4CAF50;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        /* List styling */
+        ul {
+            text-align: left;
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            font-size: 18px;
+            margin: 5px 0;
+            color: #2e3b4e;
+            font-weight: bold;
+        }
+
+        /* Visualization container */
+        .chart-container {
+            width: 80%;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        a {
+            display: inline-block;
+            font-size: 18px;
+            color: #ffffff;
+            background-color: #2e3b4e;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+        a:hover {
+            background-color: #4CAF50;
+        }
+
+        /* Responsive styling */
+        @media (max-width: 768px) {
+            .result-content, .chart-container {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="result-content">
+            <h2>Prediction Result</h2>
+            <p>Predicted Population: {{ prediction }}</p>
+        </div>
+
+        <div class="result-content">
+            <h2>Related Countries</h2>
+            <ul>
+                {% for country in countries %}
+                    <li>{{ country['Country/Territory'] }} - Population: {{ country['2022 Population'] }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class="chart-container">
+            <h2>Population Distribution</h2>
+            {{ pie_chart | safe }}
+        </div>
+
+        <div class="chart-container">
+            <h2>Country Population Comparison</h2>
+            {{ bar_chart | safe }}
+        </div>
+
+        <a href="/">Go Back</a>
+    </div>
+</body>
+</html>

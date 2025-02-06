@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>World Population Prediction</title>
+    <style>
+        /* Body styling */
+        body {
+            background-color: #f0f8ff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Center content */
+        .container {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        /* Form styling */
+        form {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            width: 40%;
+            min-width: 300px;
+        }
+
+        h1 {
+            color: #2e3b4e;
+            font-size: 36px;
+            margin-bottom: 30px;
+        }
+
+        /* Label and input styling */
+        label {
+            font-size: 18px;
+            color: #2e3b4e;
+            margin-bottom: 10px;
+            display: block;
+            text-align: left;
+        }
+
+        input[type="number"], input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0 20px 0;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        /* Responsive styling */
+        @media (max-width: 768px) {
+            form {
+                width: 80%;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div>
+            <center>
+            <br>
+            <br>
+            <h1>Welcome to the World Population Prediction App</h1>
+            <form action="/predict" method="POST">
+                <label for="growth_rate">Growth Rate (%):</label>
+                <input type="number" id="growth_rate" name="growth_rate" step="0.01" required><br>
+
+                <label for="density">Density (per km²):</label>
+                <input type="number" id="density" name="density" required><br>
+
+                <label for="avg_population">Avg Population (2010-2020):</label>
+                <input type="number" id="avg_population" name="avg_population" required><br>
+
+                <label for="area">Area (km²):</label>
+                <input type="number" id="area" name="area" required><br>
+
+                <input type="submit" value="Predict">
+            </form>
+            </center>
+        </div>
+    </div>
+</body>
+</html>
